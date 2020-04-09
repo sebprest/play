@@ -39,6 +39,9 @@ if FileManager.default.fileExists(atPath: fileURL!.path) {
         // play the audio file
         audioPlayer.play()
         
+        // output the currently playing file to the console
+        print("Playing \(audioPlayer.url!.lastPathComponent)")
+        
         // stay open while the song is still playing
         while audioPlayer.currentTime < audioPlayer.duration {
             wait()
