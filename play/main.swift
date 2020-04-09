@@ -44,7 +44,24 @@ if FileManager.default.fileExists(atPath: fileURL!.path) {
         
         // stay open while the song is still playing
         while audioPlayer.currentTime < audioPlayer.duration {
-            wait()
+            switch readLine() {
+              case Constants.SEEK_FORWARD_KEY:
+                  print("Seeking forward \(Constants.SEEK_AMOUNT) seconds")
+                  audioPlayer.currentTime += Constants.SEEK_AMOUNT
+              case Constants.SEEK_BACKWARD_KEY:
+                  print("Seeking backward \(Constants.SEEK_AMOUNT) seconds")
+                  audioPlayer.currentTime -= Constants.SEEK_AMOUNT
+              case Constants.PLAY_PAUSE_KEY:
+                  if audioPlayer.isPlaying {
+                      print("Pausing")
+                      audioPlayer.pause()
+                  } else {
+                      print("Playing")
+                      audioPlayer.play()
+                  }
+              default:
+                  break
+              }
         }
     } catch {
         print("Error initialising audio player: \(error)")
