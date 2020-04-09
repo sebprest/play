@@ -46,10 +46,10 @@ if FileManager.default.fileExists(atPath: fileURL!.path) {
         while audioPlayer.currentTime < audioPlayer.duration {
             switch readLine() {
               case Constants.SEEK_FORWARD_KEY:
-                  print("Seeking forward \(Constants.SEEK_AMOUNT) seconds")
+                  print("Seeking forwards \(Constants.SEEK_AMOUNT) seconds")
                   audioPlayer.currentTime += Constants.SEEK_AMOUNT
               case Constants.SEEK_BACKWARD_KEY:
-                  print("Seeking backward \(Constants.SEEK_AMOUNT) seconds")
+                  print("Seeking backwards \(Constants.SEEK_AMOUNT) seconds")
                   audioPlayer.currentTime -= Constants.SEEK_AMOUNT
               case Constants.PLAY_PAUSE_KEY:
                   if audioPlayer.isPlaying {
